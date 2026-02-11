@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mundial Media - Redesign</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--pri:#0f172a;--acc:#0ea5e9;--teal:#14b8a6;--ora:#f97316;--txt:#334155;--txtl:#64748b;--bg:#fff;--bgs:#f8fafc;--bor:#e2e8f0}
+body{font-family:'Inter',sans-serif;color:var(--txt);line-height:1.6}
+nav{position:fixed;top:0;width:100%;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--bor);z-index:99;padding:0 24px}
+.nav-c{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{display:flex;align-items:center;gap:12px;font-weight:700;font-size:20px;color:var(--pri);text-decoration:none}
+.logo-i{width:36px;height:36px;background:linear-gradient(135deg,var(--ora),var(--acc),var(--teal));border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800}
+.btn{padding:10px 20px;border-radius:8px;font-size:14px;font-weight:600;border:none;cursor:pointer;transition:all .2s}
+.btn-p{background:var(--pri);color:#fff}
+.btn-p:hover{background:#1e293b;transform:translateY(-1px)}
+.btn-w{background:#fff;color:var(--pri)}
+.hero{padding:160px 24px 100px;background:linear-gradient(180deg,var(--bgs),var(--bg))}
+.hero-c{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;background:#fff;border:1px solid var(--bor);border-radius:100px;font-size:13px;margin-bottom:24px}
+.badge-dot{width:8px;height:8px;background:var(--teal);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
+h1{font-size:52px;font-weight:800;line-height:1.1;color:var(--pri);margin-bottom:24px}
+h1 span{background:linear-gradient(135deg,var(--acc),var(--teal));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{font-size:18px;color:var(--txtl);margin-bottom:32px;max-width:480px}
+.hero-cta{display:flex;gap:12px;margin-bottom:48px}
+.stats{display:flex;gap:48px}
+.stat-v{font-size:32px;font-weight:800;color:var(--pri)}
+.stat-l{font-size:13px;color:var(--txtl)}
+.card{background:#fff;border-radius:16px;box-shadow:0 25px 50px -12px rgba(0,0,0,.1);padding:32px;border:1px solid var(--bor)}
+.card-h{display:flex;justify-content:space-between;margin-bottom:24px}
+.card-t{font-size:14px;font-weight:600;color:var(--pri)}
+.card-b{font-size:12px;padding:4px 10px;background:rgba(14,165,233,.1);color:var(--acc);border-radius:100px}
+.bars{display:flex;align-items:flex-end;gap:12px;height:140px;margin-bottom:16px}
+.bar{flex:1;background:linear-gradient(180deg,var(--acc),var(--teal));border-radius:6px 6px 0 0;transition:all .3s}
+.bar:nth-child(1){height:45%}.bar:nth-child(2){height:65%}.bar:nth-child(3){height:55%}.bar:nth-child(4){height:80%}.bar:nth-child(5){height:70%}.bar:nth-child(6){height:90%}.bar:nth-child(7){height:100%}
+.bar:hover{opacity:.8}
+.lbls{display:flex;justify-content:space-between;font-size:11px;color:var(--txtl)}
+.float{position:absolute;background:#fff;border-radius:12px;padding:16px;box-shadow:0 10px 40px rgba(0,0,0,.12);border:1px solid var(--bor)}
+.float-1{top:-20px;right:-20px;display:flex;align-items:center;gap:12px}
+.float-2{bottom:40px;left:-30px}
+.float-m{font-size:24px;font-weight:700;color:var(--pri)}
+.float-l{font-size:12px;color:var(--txtl)}
+.float-c{font-size:12px;color:var(--teal);font-weight:600}
+.hero-v{position:relative}
+.trust{padding:60px 24px;border-top:1px solid var(--bor);border-bottom:1px solid var(--bor)}
+.trust-c{max-width:1200px;margin:0 auto;text-align:center}
+.trust-l{font-size:13px;color:var(--txtl);text-transform:uppercase;letter-spacing:.05em;margin-bottom:32px}
+.trust-g{display:flex;justify-content:center;gap:64px;flex-wrap:wrap}
+.trust-i{opacity:.4;font-size:18px;font-weight:700;color:var(--txt)}
+.feat{padding:100px 24px}
+.sec-c{max-width:1200px;margin:0 auto}
+.sec-h{text-align:center;max-width:640px;margin:0 auto 64px}
+.sec-t{font-size:13px;font-weight:600;color:var(--acc);text-transform:uppercase;letter-spacing:.05em;margin-bottom:16px}
+.sec-ti{font-size:40px;font-weight:800;color:var(--pri);margin-bottom:16px}
+.sec-d{font-size:18px;color:var(--txtl)}
+.feat-g{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.feat-c{padding:32px;background:var(--bgs);border-radius:16px;border:1px solid var(--bor);transition:all .3s}
+.feat-c:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(0,0,0,.08);border-color:var(--acc)}
+.feat-i{font-size:32px;margin-bottom:16px}
+.feat-t{font-size:18px;font-weight:700;color:var(--pri);margin-bottom:8px}
+.feat-d{font-size:14px;color:var(--txtl)}
+.stats-s{padding:80px 24px;background:var(--pri);color:#fff}
+.stats-g{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:48px;text-align:center}
+.stats-v{font-size:48px;font-weight:800;background:linear-gradient(135deg,#fff,rgba(255,255,255,.7));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stats-l{font-size:14px;color:rgba(255,255,255,.7)}
+.cta{padding:100px 24px;background:linear-gradient(135deg,var(--pri),#1e3a5f);text-align:center;color:#fff}
+.cta h2{font-size:44px;font-weight:800;margin-bottom:16px}
+.cta p{font-size:18px;opacity:.8;margin-bottom:40px}
+.cta-btns{display:flex;gap:16px;justify-content:center}
+footer{padding:60px 24px;background:var(--bgs);text-align:center}
+.foot-l{display:flex;justify-content:center;gap:12px;margin-bottom:24px}
+.foot-b{padding:8px 12px;background:#fff;border-radius:6px;border:1px solid var(--bor);font-size:12px;color:var(--txtl)}
+.foot-c{font-size:13px;color:var(--txtl)}
+@media(max-width:900px){.hero-c,.feat-g,.stats-g{grid-template-columns:1fr}.hero-v{display:none}.stats{flex-wrap:wrap}}
+</style>
+</head>
+<body>
+<nav><div class="nav-c"><a class="logo"><div class="logo-i">M</div>Mundial Media</a><button class="btn btn-p">Get Started</button></div></nav>
+<section class="hero"><div class="hero-c"><div><div class="badge"><span class="badge-dot"></span>NMSDC Certified MBE</div><h1>Connect with <span>diverse audiences</span> at scale</h1><p>AI-powered contextual advertising that unites brands with multicultural consumers through precision targeting.</p><div class="hero-cta"><button class="btn btn-p" style="padding:14px 28px">Start a Campaign</button><button class="btn" style="color:var(--txt)">Watch Demo →</button></div><div class="stats"><div><div class="stat-v">30M+</div><div class="stat-l">Consumers reached</div></div><div><div class="stat-v">400+</div><div class="stat-l">Publisher partners</div></div><div><div class="stat-v">15+</div><div class="stat-l">Countries</div></div></div></div><div class="hero-v"><div class="card"><div class="card-h"><span class="card-t">Campaign Performance</span><span class="card-b">Live</span></div><div class="bars"><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div></div><div class="lbls"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div></div><div class="float float-1"><div style="width:40px;height:40px;background:rgba(20,184,166,.1);border-radius:10px;display:flex;align-items:center;justify-content:center">🎯</div><div><div style="font-size:14px;font-weight:600;color:var(--pri)">Context Match</div><div style="font-size:12px;color:var(--txtl)">98.4% accuracy</div></div></div><div class="float float-2"><div class="float-m">+14%</div><div class="float-l">Brand favorability</div><div class="float-c">↑ vs. industry avg</div></div></div></div></section>
+<section class="trust"><div class="trust-c"><div class="trust-l">Trusted by leading brands and publishers</div><div class="trust-g"><span class="trust-i">Univision</span><span class="trust-i">BET</span><span class="trust-i">Telemundo</span><span class="trust-i">Essence</span><span class="trust-i">mitu</span></div></div></section>
+<section class="feat"><div class="sec-c"><div class="sec-h"><div class="sec-t">Why Mundial Media</div><h2 class="sec-ti">Contextual advertising, reimagined</h2><p class="sec-d">Our AI engine analyzes content in real-time to place your ads in the most relevant environments.</p></div><div class="feat-g"><div class="feat-c"><div class="feat-i">🧠</div><h3 class="feat-t">Natural Language Processing</h3><p class="feat-d">Understand textual data by identifying contextually relevant segments and sentiment via AI.</p></div><div class="feat-c"><div class="feat-i">👁️</div><h3 class="feat-t">Computer Vision</h3><p class="feat-d">Identify brand logos and objects to build valuable image metadata for better targeting.</p></div><div class="feat-c"><div class="feat-i">⚡</div><h3 class="feat-t">Machine Learning</h3><p class="feat-d">Algorithmic solutions build predictive models to optimize campaign performance.</p></div></div></div></section>
+<section class="stats-s"><div class="stats-g"><div><div class="stats-v">+3%</div><div class="stats-l">Time-in-view increase</div></div><div><div class="stats-v">+5%</div><div class="stats-l">Purchase intent lift</div></div><div><div class="stats-v">+14%</div><div class="stats-l">Brand favorability</div></div><div><div class="stats-v">2.3x</div><div class="stats-l">Industry avg CTR</div></div></div></section>
+<section class="cta"><h2>Ready to reach diverse audiences?</h2><p>Join hundreds of brands already growing with Mundial Media.</p><div class="cta-btns"><button class="btn btn-w" style="padding:14px 28px">Start a Campaign</button><button class="btn" style="border:2px solid rgba(255,255,255,.3);color:#fff;padding:14px 28px">Talk to Sales</button></div></section>
+<footer><div class="foot-l"><span class="foot-b">✓ NMSDC Certified MBE</span><span class="foot-b">🔒 SOC 2 Compliant</span></div><p class="foot-c">© 2026 Mundial Media. All rights reserved.</p></footer>
+</body>
+</html>
