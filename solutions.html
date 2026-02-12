@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Solutions - Mundial Media</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--pri:#0f172a;--acc:#0ea5e9;--teal:#14b8a6;--ora:#f97316;--pur:#8b5cf6;--txt:#334155;--txtl:#64748b;--bg:#fff;--bgs:#f8fafc;--bor:#e2e8f0}
+body{font-family:'Inter',sans-serif;color:var(--txt);line-height:1.6}
+a{text-decoration:none;color:inherit}
+nav{position:fixed;top:0;width:100%;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--bor);z-index:99;padding:0 24px}
+.nav-c{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{display:flex;align-items:center;gap:12px;font-weight:700;font-size:20px;color:var(--pri)}
+.logo-i{width:36px;height:36px;background:linear-gradient(135deg,var(--ora),var(--acc),var(--teal));border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800}
+.nav-links{display:flex;gap:32px}
+.nav-links a{font-size:14px;font-weight:500;color:var(--txt);transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--acc)}
+.btn{padding:10px 20px;border-radius:8px;font-size:14px;font-weight:600;border:none;cursor:pointer;transition:all .2s}
+.btn-p{background:var(--pri);color:#fff}
+.btn-p:hover{background:#1e293b}
+
+.hero{padding:140px 24px 80px;background:linear-gradient(180deg,var(--bgs),var(--bg))}
+.hero-c{max-width:1200px;margin:0 auto;text-align:center}
+.hero h1{font-size:52px;font-weight:800;color:var(--pri);margin-bottom:20px}
+.hero h1 span{background:linear-gradient(135deg,var(--acc),var(--teal));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{font-size:20px;color:var(--txtl);max-width:700px;margin:0 auto}
+
+.section{padding:80px 24px}
+.section-c{max-width:1200px;margin:0 auto}
+
+.sol-section{padding:100px 24px}
+.sol-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.sol-grid.reverse{direction:rtl}
+.sol-grid.reverse>*{direction:ltr}
+.sol-content h2{font-size:14px;font-weight:600;color:var(--teal);text-transform:uppercase;letter-spacing:.05em;margin-bottom:12px}
+.sol-content h3{font-size:36px;font-weight:800;color:var(--pri);margin-bottom:16px}
+.sol-content>p{font-size:18px;color:var(--txtl);margin-bottom:32px}
+.sol-features{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.sol-feat{display:flex;align-items:flex-start;gap:12px;padding:16px;background:var(--bgs);border-radius:12px;border:1px solid var(--bor)}
+.sol-feat-icon{width:32px;height:32px;background:rgba(14,165,233,.1);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--acc);flex-shrink:0}
+.sol-feat h4{font-size:14px;font-weight:600;color:var(--pri);margin-bottom:2px}
+.sol-feat p{font-size:13px;color:var(--txtl)}
+.sol-visual{background:linear-gradient(135deg,var(--pri),#1e3a5f);border-radius:24px;padding:40px;color:#fff;min-height:400px;display:flex;flex-direction:column;justify-content:center}
+.sol-visual.teal{background:linear-gradient(135deg,#0f766e,var(--teal))}
+.sol-visual.orange{background:linear-gradient(135deg,#c2410c,var(--ora))}
+.sol-visual h4{font-size:16px;font-weight:600;margin-bottom:24px;opacity:.8}
+.sol-stat{margin-bottom:20px}
+.sol-stat-val{font-size:48px;font-weight:800}
+.sol-stat-lbl{font-size:14px;opacity:.8}
+.sol-visual-list{display:flex;flex-direction:column;gap:12px}
+.sol-visual-item{display:flex;align-items:center;gap:12px;padding:14px;background:rgba(255,255,255,.1);border-radius:10px;font-size:14px;font-weight:500}
+
+.audiences{background:var(--bgs);padding:100px 24px}
+.aud-header{text-align:center;margin-bottom:60px}
+.aud-header h2{font-size:36px;font-weight:800;color:var(--pri);margin-bottom:16px}
+.aud-header p{font-size:18px;color:var(--txtl)}
+.aud-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;max-width:1200px;margin:0 auto}
+.aud-card{background:#fff;padding:32px;border-radius:16px;border:1px solid var(--bor);text-align:center;transition:all .3s}
+.aud-card:hover{transform:translateY(-4px);box-shadow:0 15px 30px rgba(0,0,0,.08)}
+.aud-icon{font-size:40px;margin-bottom:16px}
+.aud-card h4{font-size:18px;font-weight:700;color:var(--pri);margin-bottom:8px}
+.aud-card p{font-size:14px;color:var(--txtl)}
+
+.cta{padding:100px 24px;background:linear-gradient(135deg,var(--pri),#1e3a5f);text-align:center;color:#fff}
+.cta h2{font-size:40px;font-weight:800;margin-bottom:16px}
+.cta p{font-size:18px;opacity:.8;margin-bottom:32px}
+.cta-btns{display:flex;gap:16px;justify-content:center}
+.btn-w{background:#fff;color:var(--pri);padding:14px 28px}
+.btn-w:hover{background:var(--bgs)}
+.btn-o{background:rgba(255,255,255,.15);border:2px solid #fff;color:#fff;padding:14px 28px;font-weight:700}
+.btn-o:hover{background:rgba(255,255,255,.25)}
+
+footer{padding:40px 24px;background:var(--bgs);text-align:center;font-size:13px;color:var(--txtl);border-top:1px solid var(--bor)}
+
+@media(max-width:900px){
+.nav-links{display:none}
+.sol-grid,.aud-grid{grid-template-columns:1fr}
+.sol-grid.reverse{direction:ltr}
+.hero h1{font-size:36px}
+.sol-features{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<nav>
+<div class="nav-c">
+<a href="index.html" class="logo"><div class="logo-i">M</div>Mundial Media</a>
+<div class="nav-links">
+<a href="technology.html">Technology</a>
+<a href="solutions.html" class="active">Solutions</a>
+<a href="careers.html">Careers</a>
+</div>
+<button class="btn btn-p">Get Started</button>
+</div>
+</nav>
+
+<section class="hero">
+<div class="hero-c">
+<h1>Solutions for <span>every partner</span></h1>
+<p>Whether you're a publisher looking to monetize or a brand seeking diverse audiences, we have tailored solutions to drive your success.</p>
+</div>
+</section>
+
+<section class="sol-section">
+<div class="section-c">
+<div class="sol-grid">
+<div class="sol-content">
+<h2>For Publishers</h2>
+<h3>Publisher Solutions</h3>
+<p>The only multicultural platform publishers can rely on to measure and optimize their supply. Focus on creating great content while we maximize your revenue.</p>
+<div class="sol-features">
+<div class="sol-feat">
+<div class="sol-feat-icon">📈</div>
+<div>
+<h4>Yield Optimization</h4>
+<p>Maximize revenue per impression</p>
+</div>
+</div>
+<div class="sol-feat">
+<div class="sol-feat-icon">📊</div>
+<div>
+<h4>Real-time Analytics</h4>
+<p>Live dashboards and insights</p>
+</div>
+</div>
+<div class="sol-feat">
+<div class="sol-feat-icon">🎯</div>
+<div>
+<h4>Contextual Lift</h4>
+<p>Premium rates for quality content</p>
+</div>
+</div>
+<div class="sol-feat">
+<div class="sol-feat-icon">⚙️</div>
+<div>
+<h4>Supply Management</h4>
+<p>Full control over your inventory</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sol-visual teal">
+<h4>Publisher Network</h4>
+<div class="sol-stat">
+<div class="sol-stat-val">400+</div>
+<div class="sol-stat-lbl">Multicultural publishing partners</div>
+</div>
+<div class="sol-stat">
+<div class="sol-stat-val">15+</div>
+<div class="sol-stat-lbl">Countries represented</div>
+</div>
+<div class="sol-stat">
+<div class="sol-stat-val">30M+</div>
+<div class="sol-stat-lbl">Monthly unique visitors</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="sol-section" style="background:var(--bgs)">
+<div class="section-c">
+<div class="sol-grid reverse">
+<div class="sol-content">
+<h2>For Brands & Advertisers</h2>
+<h3>Brand Solutions</h3>
+<p>Reach multicultural audiences with innovative ad experiences that drive real business results. Our platform ensures brand safety while maximizing engagement.</p>
+<div class="sol-features">
+<div class="sol-feat">
+<div class="sol-feat-icon">✨</div>
+<div>
+<h4>Innovative Ad Formats</h4>
+<p>High-impact, turnkey solutions</p>
+</div>
+</div>
+<div class="sol-feat">
+<div class="sol-feat-icon">🎨</div>
+<div>
+<h4>Custom Content</h4>
+<p>Sponsored editorial and takeovers</p>
+</div>
+</div>
+<div class="sol-feat">
+<div class="sol-feat-icon">🔍</div>
+<div>
+<h4>Research Insights</h4>
+<p>Deep audience understanding</p>
+</div>
+</div>
+<div class="sol-feat">
+<div class="sol-feat-icon">🛡️</div>
+<div>
+<h4>Brand Safety</h4>
+<p>AI-powered content verification</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sol-visual orange">
+<h4>Campaign Performance</h4>
+<div class="sol-visual-list">
+<div class="sol-visual-item">📈 +14% brand favorability lift</div>
+<div class="sol-visual-item">🎯 +5% purchase intent increase</div>
+<div class="sol-visual-item">👁️ +3% time-in-view improvement</div>
+<div class="sol-visual-item">🏆 2.3x industry average CTR</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="audiences">
+<div class="aud-header">
+<h2>Audiences we reach</h2>
+<p>Connect authentically with the market's fastest-growing consumer segments</p>
+</div>
+<div class="aud-grid">
+<div class="aud-card">
+<div class="aud-icon">🌎</div>
+<h4>Hispanic</h4>
+<p>The largest and fastest-growing multicultural segment in the US</p>
+</div>
+<div class="aud-card">
+<div class="aud-icon">✊</div>
+<h4>Black</h4>
+<p>A powerful consumer group with $1.6T in buying power</p>
+</div>
+<div class="aud-card">
+<div class="aud-icon">🌏</div>
+<h4>AAPI</h4>
+<p>Asian American and Pacific Islander communities</p>
+</div>
+<div class="aud-card">
+<div class="aud-icon">🏳️‍🌈</div>
+<h4>LGBTQ+</h4>
+<p>Engaged and brand-loyal consumers</p>
+</div>
+</div>
+</section>
+
+<section class="cta">
+<h2>Let's build your campaign</h2>
+<p>Our team is ready to create a custom solution for your needs.</p>
+<div class="cta-btns">
+<button class="btn btn-w">Contact Sales</button>
+<button class="btn btn-o">View Case Studies</button>
+</div>
+</section>
+
+<footer>
+<p>© 2026 Mundial Media. All rights reserved. | NMSDC Certified MBE</p>
+</footer>
+</body>
+</html>

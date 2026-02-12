@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Careers - Mundial Media</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--pri:#0f172a;--acc:#0ea5e9;--teal:#14b8a6;--ora:#f97316;--pur:#8b5cf6;--txt:#334155;--txtl:#64748b;--bg:#fff;--bgs:#f8fafc;--bor:#e2e8f0}
+body{font-family:'Inter',sans-serif;color:var(--txt);line-height:1.6}
+a{text-decoration:none;color:inherit}
+nav{position:fixed;top:0;width:100%;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--bor);z-index:99;padding:0 24px}
+.nav-c{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{display:flex;align-items:center;gap:12px;font-weight:700;font-size:20px;color:var(--pri)}
+.logo-i{width:36px;height:36px;background:linear-gradient(135deg,var(--ora),var(--acc),var(--teal));border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800}
+.nav-links{display:flex;gap:32px}
+.nav-links a{font-size:14px;font-weight:500;color:var(--txt);transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--acc)}
+.btn{padding:10px 20px;border-radius:8px;font-size:14px;font-weight:600;border:none;cursor:pointer;transition:all .2s}
+.btn-p{background:var(--pri);color:#fff}
+.btn-p:hover{background:#1e293b}
+.btn-acc{background:var(--acc);color:#fff}
+.btn-acc:hover{background:#0284c7}
+
+.hero{padding:140px 24px 80px;background:linear-gradient(180deg,var(--bgs),var(--bg))}
+.hero-c{max-width:1200px;margin:0 auto;text-align:center}
+.hero h1{font-size:52px;font-weight:800;color:var(--pri);margin-bottom:20px}
+.hero h1 span{background:linear-gradient(135deg,var(--acc),var(--teal));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{font-size:20px;color:var(--txtl);max-width:700px;margin:0 auto}
+
+.section{padding:80px 24px}
+.section-c{max-width:1200px;margin:0 auto}
+.section-h{text-align:center;margin-bottom:60px}
+.section-t{font-size:13px;font-weight:600;color:var(--acc);text-transform:uppercase;letter-spacing:.05em;margin-bottom:12px}
+.section-ti{font-size:36px;font-weight:800;color:var(--pri);margin-bottom:16px}
+.section-d{font-size:18px;color:var(--txtl);max-width:600px;margin:0 auto}
+
+.culture{background:var(--bgs)}
+.culture-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.culture-card{background:#fff;padding:36px;border-radius:20px;border:1px solid var(--bor);text-align:center;transition:all .3s}
+.culture-card:hover{transform:translateY(-4px);box-shadow:0 15px 30px rgba(0,0,0,.08)}
+.culture-icon{font-size:48px;margin-bottom:20px}
+.culture-card h3{font-size:20px;font-weight:700;color:var(--pri);margin-bottom:12px}
+.culture-card p{font-size:15px;color:var(--txtl);line-height:1.7}
+
+.benefits{background:#fff}
+.benefits-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.benefit{text-align:center;padding:24px}
+.benefit-icon{width:56px;height:56px;margin:0 auto 16px;background:linear-gradient(135deg,rgba(14,165,233,.1),rgba(20,184,166,.1));border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:24px}
+.benefit h4{font-size:16px;font-weight:600;color:var(--pri);margin-bottom:6px}
+.benefit p{font-size:14px;color:var(--txtl)}
+
+.jobs{background:var(--bgs)}
+.jobs-list{display:flex;flex-direction:column;gap:16px}
+.job{background:#fff;padding:28px 32px;border-radius:16px;border:1px solid var(--bor);display:flex;align-items:center;justify-content:space-between;transition:all .3s}
+.job:hover{border-color:var(--acc);box-shadow:0 8px 24px rgba(0,0,0,.06)}
+.job-info h3{font-size:18px;font-weight:700;color:var(--pri);margin-bottom:6px}
+.job-meta{display:flex;gap:16px}
+.job-tag{font-size:13px;color:var(--txtl);display:flex;align-items:center;gap:6px}
+.job-tag svg{width:16px;height:16px;stroke:var(--txtl)}
+
+.values{background:#fff;padding:100px 24px}
+.values-c{max-width:1200px;margin:0 auto}
+.values-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.values-content h2{font-size:36px;font-weight:800;color:var(--pri);margin-bottom:20px}
+.values-content p{font-size:18px;color:var(--txtl);margin-bottom:24px}
+.values-list{display:flex;flex-direction:column;gap:16px}
+.value-item{display:flex;align-items:center;gap:16px}
+.value-check{width:28px;height:28px;background:var(--teal);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;flex-shrink:0}
+.value-item span{font-size:16px;color:var(--txt);font-weight:500}
+.values-img{background:linear-gradient(135deg,var(--pri),#1e3a5f);border-radius:24px;padding:48px;color:#fff;min-height:400px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
+.values-img h3{font-size:28px;font-weight:800;margin-bottom:16px}
+.values-img p{font-size:16px;opacity:.8;max-width:280px}
+
+.cta{padding:100px 24px;background:linear-gradient(135deg,var(--teal),#0f766e);text-align:center;color:#fff}
+.cta h2{font-size:40px;font-weight:800;margin-bottom:16px}
+.cta p{font-size:18px;opacity:.9;margin-bottom:32px}
+.btn-w{background:#fff;color:var(--pri);padding:14px 28px}
+.btn-w:hover{background:var(--bgs)}
+
+footer{padding:40px 24px;background:var(--bgs);text-align:center;font-size:13px;color:var(--txtl);border-top:1px solid var(--bor)}
+
+@media(max-width:900px){
+.nav-links{display:none}
+.culture-grid,.benefits-grid{grid-template-columns:1fr}
+.values-grid{grid-template-columns:1fr}
+.hero h1{font-size:36px}
+.job{flex-direction:column;align-items:flex-start;gap:16px}
+}
+</style>
+</head>
+<body>
+<nav>
+<div class="nav-c">
+<a href="index.html" class="logo"><div class="logo-i">M</div>Mundial Media</a>
+<div class="nav-links">
+<a href="technology.html">Technology</a>
+<a href="solutions.html">Solutions</a>
+<a href="careers.html" class="active">Careers</a>
+</div>
+<button class="btn btn-p">Get Started</button>
+</div>
+</nav>
+
+<section class="hero">
+<div class="hero-c">
+<h1>Join <span>our team</span></h1>
+<p>Help us build the future of multicultural advertising. We're looking for passionate people who want to make a difference.</p>
+</div>
+</section>
+
+<section class="section culture">
+<div class="section-c">
+<div class="section-h">
+<div class="section-t">Our Culture</div>
+<h2 class="section-ti">What makes us different</h2>
+<p class="section-d">We believe multiculturalism holds awesome power for driving digital audience growth.</p>
+</div>
+<div class="culture-grid">
+<div class="culture-card">
+<div class="culture-icon">🌍</div>
+<h3>Diversity First</h3>
+<p>Our team reflects the diverse audiences we serve. We celebrate different perspectives and backgrounds.</p>
+</div>
+<div class="culture-card">
+<div class="culture-icon">🚀</div>
+<h3>Innovation Driven</h3>
+<p>We're constantly pushing boundaries with AI and technology to solve complex advertising challenges.</p>
+</div>
+<div class="culture-card">
+<div class="culture-icon">🤝</div>
+<h3>Collaborative Spirit</h3>
+<p>We work together across teams and time zones to deliver exceptional results for our partners.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section benefits">
+<div class="section-c">
+<div class="section-h">
+<div class="section-t">Benefits</div>
+<h2 class="section-ti">We take care of our people</h2>
+</div>
+<div class="benefits-grid">
+<div class="benefit">
+<div class="benefit-icon">🏥</div>
+<h4>Health & Wellness</h4>
+<p>Comprehensive medical, dental, and vision coverage</p>
+</div>
+<div class="benefit">
+<div class="benefit-icon">🏠</div>
+<h4>Remote Flexible</h4>
+<p>Work from anywhere with flexible hours</p>
+</div>
+<div class="benefit">
+<div class="benefit-icon">📚</div>
+<h4>Learning Budget</h4>
+<p>Annual stipend for courses and conferences</p>
+</div>
+<div class="benefit">
+<div class="benefit-icon">🌴</div>
+<h4>Unlimited PTO</h4>
+<p>Take the time you need to recharge</p>
+</div>
+<div class="benefit">
+<div class="benefit-icon">💰</div>
+<h4>Competitive Pay</h4>
+<p>Salary + equity compensation</p>
+</div>
+<div class="benefit">
+<div class="benefit-icon">👶</div>
+<h4>Parental Leave</h4>
+<p>Generous paid leave for new parents</p>
+</div>
+<div class="benefit">
+<div class="benefit-icon">🎉</div>
+<h4>Team Events</h4>
+<p>Regular offsites and team celebrations</p>
+</div>
+<div class="benefit">
+<div class="benefit-icon">💪</div>
+<h4>Wellness Stipend</h4>
+<p>Monthly allowance for gym or wellness</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section jobs">
+<div class="section-c">
+<div class="section-h">
+<div class="section-t">Open Positions</div>
+<h2 class="section-ti">Find your next role</h2>
+</div>
+<div class="jobs-list">
+<div class="job">
+<div class="job-info">
+<h3>Senior Software Engineer</h3>
+<div class="job-meta">
+<span class="job-tag">📍 Remote</span>
+<span class="job-tag">💼 Engineering</span>
+<span class="job-tag">⏰ Full-time</span>
+</div>
+</div>
+<button class="btn btn-acc">Apply Now</button>
+</div>
+<div class="job">
+<div class="job-info">
+<h3>Product Manager</h3>
+<div class="job-meta">
+<span class="job-tag">📍 New York</span>
+<span class="job-tag">💼 Product</span>
+<span class="job-tag">⏰ Full-time</span>
+</div>
+</div>
+<button class="btn btn-acc">Apply Now</button>
+</div>
+<div class="job">
+<div class="job-info">
+<h3>Data Scientist</h3>
+<div class="job-meta">
+<span class="job-tag">📍 Remote</span>
+<span class="job-tag">💼 Data</span>
+<span class="job-tag">⏰ Full-time</span>
+</div>
+</div>
+<button class="btn btn-acc">Apply Now</button>
+</div>
+<div class="job">
+<div class="job-info">
+<h3>Account Executive</h3>
+<div class="job-meta">
+<span class="job-tag">📍 Los Angeles</span>
+<span class="job-tag">💼 Sales</span>
+<span class="job-tag">⏰ Full-time</span>
+</div>
+</div>
+<button class="btn btn-acc">Apply Now</button>
+</div>
+<div class="job">
+<div class="job-info">
+<h3>Marketing Manager</h3>
+<div class="job-meta">
+<span class="job-tag">📍 Remote</span>
+<span class="job-tag">💼 Marketing</span>
+<span class="job-tag">⏰ Full-time</span>
+</div>
+</div>
+<button class="btn btn-acc">Apply Now</button>
+</div>
+</div>
+</div>
+</section>
+
+<section class="values">
+<div class="values-c">
+<div class="values-grid">
+<div class="values-content">
+<h2>Why Mundial Media?</h2>
+<p>We're not just building a company. We're building a movement to transform how brands connect with diverse audiences.</p>
+<div class="values-list">
+<div class="value-item">
+<div class="value-check">✓</div>
+<span>Work on cutting-edge AI technology</span>
+</div>
+<div class="value-item">
+<div class="value-check">✓</div>
+<span>Make real impact on underserved communities</span>
+</div>
+<div class="value-item">
+<div class="value-check">✓</div>
+<span>Grow with a fast-scaling startup</span>
+</div>
+<div class="value-item">
+<div class="value-check">✓</div>
+<span>Join an NMSDC certified minority business</span>
+</div>
+</div>
+</div>
+<div class="values-img">
+<h3>We are the audience</h3>
+<p>Our multicultural team brings authentic perspective to everything we build.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="cta">
+<h2>Don't see the right role?</h2>
+<p>We're always looking for talented people. Send us your resume and we'll be in touch.</p>
+<button class="btn btn-w">Send Your Resume</button>
+</section>
+
+<footer>
+<p>© 2026 Mundial Media. All rights reserved. | NMSDC Certified MBE</p>
+</footer>
+</body>
+</html>
