@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Get Started - Mundial Media</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --teal:#0097a7;
+  --magenta:#d81b60;
+  --purple:#8e24aa;
+  --orange:#f57c00;
+  --yellow:#ffc107;
+  --pri:#1a1a2e;
+  --txt:#334155;
+  --txtl:#64748b;
+  --bg:#fff;
+  --bgs:#f8fafc;
+  --bor:#e2e8f0
+}
+body{font-family:'Inter',sans-serif;color:var(--txt);line-height:1.6}
+a{text-decoration:none;color:inherit}
+nav{position:fixed;top:0;width:100%;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--bor);z-index:99;padding:0 24px}
+.nav-c{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{display:flex;align-items:center;gap:12px;font-weight:700;font-size:20px;color:var(--pri)}
+.logo-icon{width:40px;height:40px;border-radius:10px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.logo-icon::before{content:'';position:absolute;inset:0;background:conic-gradient(from 180deg,var(--teal) 0deg,var(--magenta) 90deg,var(--purple) 180deg,var(--orange) 270deg,var(--yellow) 360deg)}
+.logo-icon span{position:relative;z-index:1;color:#fff;font-weight:800;font-size:22px}
+.nav-links{display:flex;gap:32px}
+.nav-links a{font-size:14px;font-weight:500;color:var(--txt);transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--magenta)}
+.btn{padding:10px 20px;border-radius:8px;font-size:14px;font-weight:600;border:none;cursor:pointer;transition:all .2s;text-decoration:none;display:inline-block}
+.btn-p{background:linear-gradient(135deg,var(--magenta),var(--purple));color:#fff}
+.btn-p:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(216,27,96,.3)}
+
+.hero{padding:140px 24px 60px;background:linear-gradient(180deg,#fafbfc,var(--bg));text-align:center}
+.hero-c{max-width:800px;margin:0 auto}
+.hero h1{font-size:48px;font-weight:800;color:var(--pri);margin-bottom:16px}
+.hero h1 span{background:linear-gradient(135deg,var(--magenta),var(--purple),var(--teal));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p{font-size:18px;color:var(--txtl);max-width:600px;margin:0 auto}
+
+.options{padding:60px 24px 100px}
+.options-c{max-width:1000px;margin:0 auto}
+.options-h{text-align:center;margin-bottom:48px}
+.options-h h2{font-size:28px;font-weight:700;color:var(--pri);margin-bottom:8px}
+.options-h p{color:var(--txtl)}
+.options-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.option-card{background:#fff;border:2px solid var(--bor);border-radius:20px;padding:40px;transition:all .3s;position:relative;overflow:hidden}
+.option-card:hover{border-color:var(--magenta);box-shadow:0 20px 50px rgba(0,0,0,.1);transform:translateY(-4px)}
+.option-badge{position:absolute;top:20px;right:20px;background:linear-gradient(135deg,var(--magenta),var(--purple));color:#fff;font-size:11px;font-weight:600;padding:4px 10px;border-radius:100px}
+.option-icon{width:64px;height:64px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:32px;margin-bottom:24px}
+.option-card:nth-child(1) .option-icon{background:linear-gradient(135deg,rgba(0,151,167,.15),rgba(0,151,167,.25))}
+.option-card:nth-child(2) .option-icon{background:linear-gradient(135deg,rgba(245,124,0,.15),rgba(245,124,0,.25))}
+.option-card h3{font-size:24px;font-weight:700;color:var(--pri);margin-bottom:12px}
+.option-card>p{color:var(--txtl);margin-bottom:24px;font-size:15px;line-height:1.7}
+.option-features{margin-bottom:32px}
+.option-feat{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.option-check{width:20px;height:20px;background:linear-gradient(135deg,var(--teal),#00838f);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:11px;flex-shrink:0}
+.option-feat span{font-size:14px;color:var(--txt)}
+.option-btn{width:100%;padding:14px;border-radius:10px;font-size:15px;font-weight:600;border:none;cursor:pointer;transition:all .2s}
+.option-btn-pri{background:linear-gradient(135deg,var(--magenta),var(--purple));color:#fff}
+.option-btn-pri:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(216,27,96,.3)}
+.option-btn-sec{background:var(--bgs);color:var(--pri);border:1px solid var(--bor)}
+.option-btn-sec:hover{background:#fff;border-color:var(--magenta)}
+
+.help{padding:60px 24px;background:var(--bgs)}
+.help-c{max-width:800px;margin:0 auto;text-align:center}
+.help-c h2{font-size:24px;font-weight:700;color:var(--pri);margin-bottom:8px}
+.help-c p{color:var(--txtl);margin-bottom:24px}
+.help-links{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+.help-link{display:flex;align-items:center;gap:8px;padding:12px 20px;background:#fff;border:1px solid var(--bor);border-radius:10px;font-size:14px;font-weight:500;color:var(--txt);transition:all .2s}
+.help-link:hover{border-color:var(--magenta);color:var(--magenta)}
+
+footer{padding:60px 24px;background:var(--pri);text-align:center}
+.foot-c{font-size:13px;color:rgba(255,255,255,.5)}
+
+@media(max-width:768px){
+.nav-links{display:none}
+.options-grid{grid-template-columns:1fr}
+.hero h1{font-size:36px}
+}
+</style>
+</head>
+<body>
+<nav>
+<div class="nav-c">
+<a href="index.html" class="logo"><div class="logo-icon"><span>m</span></div>Mundial Media</a>
+<div class="nav-links">
+<a href="technology.html">Technology</a>
+<a href="solutions.html">Solutions</a>
+<a href="careers.html">Careers</a>
+<a href="demo.html">Demo</a>
+</div>
+<a href="get-started.html" class="btn btn-p active">Get Started</a>
+</div>
+</nav>
+
+<section class="hero">
+<div class="hero-c">
+<h1>Let's <span>get started</span></h1>
+<p>Choose the path that best fits your needs. Whether you're a publisher or advertiser, we have solutions tailored for you.</p>
+</div>
+</section>
+
+<section class="options">
+<div class="options-c">
+<div class="options-h">
+<h2>I am a...</h2>
+<p>Select your role to see relevant options</p>
+</div>
+<div class="options-grid">
+<!-- Publisher Card -->
+<div class="option-card">
+<div class="option-icon">📰</div>
+<h3>Publisher</h3>
+<p>Monetize your multicultural content with premium advertisers and maximize your revenue potential.</p>
+<div class="option-features">
+<div class="option-feat"><div class="option-check">✓</div><span>Access to premium brand advertisers</span></div>
+<div class="option-feat"><div class="option-check">✓</div><span>Real-time analytics dashboard</span></div>
+<div class="option-feat"><div class="option-check">✓</div><span>Yield optimization tools</span></div>
+<div class="option-feat"><div class="option-check">✓</div><span>Dedicated account support</span></div>
+</div>
+<a href="contact.html?type=publisher"><button class="option-btn option-btn-pri">Join as Publisher</button></a>
+</div>
+<!-- Brand Card -->
+<div class="option-card">
+<span class="option-badge">Most Popular</span>
+<div class="option-icon">🎯</div>
+<h3>Brand / Advertiser</h3>
+<p>Reach diverse audiences with AI-powered contextual advertising that drives real business results.</p>
+<div class="option-features">
+<div class="option-feat"><div class="option-check">✓</div><span>30M+ multicultural consumers</span></div>
+<div class="option-feat"><div class="option-check">✓</div><span>Cookie-free contextual targeting</span></div>
+<div class="option-feat"><div class="option-check">✓</div><span>Brand safety guaranteed</span></div>
+<div class="option-feat"><div class="option-check">✓</div><span>Custom campaign strategies</span></div>
+</div>
+<a href="contact.html?type=brand"><button class="option-btn option-btn-pri">Start a Campaign</button></a>
+</div>
+</div>
+</div>
+</section>
+
+<section class="help">
+<div class="help-c">
+<h2>Not sure where to start?</h2>
+<p>Our team is here to help you find the right solution for your needs.</p>
+<div class="help-links">
+<a href="contact.html" class="help-link">💬 Talk to Sales</a>
+<a href="demo.html" class="help-link">▶️ Watch Demo</a>
+<a href="technology.html" class="help-link">🔬 Learn About Our Tech</a>
+</div>
+</div>
+</section>
+
+<footer>
+<p class="foot-c">© 2026 Mundial Media. All rights reserved. | NMSDC Certified MBE</p>
+</footer>
+</body>
+</html>
